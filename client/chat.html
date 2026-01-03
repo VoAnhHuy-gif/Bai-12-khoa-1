@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Realtime</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <a href="/" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <div class="header-info">
+                <h2>Chat Realtime</h2>
+                <div class="header-meta">
+                    <div class="connection-status" id="connectionStatus">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Đang kết nối...</span>
+                    </div>
+                    <div class="online-count" id="onlineCount">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span id="onlineCountText">0</span> người
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="messages-container" id="messagesContainer">
+            <div class="welcome-message">
+                <div class="welcome-icon">💬</div>
+                <h3>Chào mừng đến với Chat Realtime!</h3>
+                <p>Hãy bắt đầu cuộc trò chuyện của bạn</p>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="nameInput" 
+                    placeholder="Tên của bạn..."
+                    maxlength="50"
+                    autocomplete="off"
+                />
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Nhập tin nhắn... (Shift+Enter để xuống dòng)"
+                    rows="1"
+                    maxlength="1000"
+                ></textarea>
+                <button id="sendButton" class="send-button" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/chat.js"></script>
+</body>
+</html>

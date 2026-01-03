@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Realtime</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <a href="/" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            <div class="header-info">
+                <h2>Dashboard Realtime</h2>
+                <div class="connection-status" id="connectionStatus">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Đang kết nối...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Selection -->
+        <div class="metrics-selector">
+            <h3>Chọn chỉ số theo dõi:</h3>
+            <div class="toggle-group">
+                <label class="toggle-label">
+                    <input type="checkbox" id="toggleTemperature" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">
+                        <span class="toggle-icon">🌡️</span>
+                        Temperature
+                    </span>
+                </label>
+                <label class="toggle-label">
+                    <input type="checkbox" id="toggleStock" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">
+                        <span class="toggle-icon">📈</span>
+                        Stock Price
+                    </span>
+                </label>
+                <label class="toggle-label">
+                    <input type="checkbox" id="toggleCpu" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">
+                        <span class="toggle-icon">⚡</span>
+                        CPU Usage
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Metrics Cards -->
+        <div class="metrics-cards" id="metricsCards">
+            <div class="metric-card" id="cardTemperature">
+                <div class="metric-icon">🌡️</div>
+                <div class="metric-info">
+                    <div class="metric-label">Temperature</div>
+                    <div class="metric-value" id="valueTemperature">--</div>
+                    <div class="metric-unit">°C</div>
+                </div>
+            </div>
+
+            <div class="metric-card" id="cardStock">
+                <div class="metric-icon">📈</div>
+                <div class="metric-info">
+                    <div class="metric-label">Stock Price</div>
+                    <div class="metric-value" id="valueStock">--</div>
+                    <div class="metric-unit">$</div>
+                </div>
+            </div>
+
+            <div class="metric-card" id="cardCpu">
+                <div class="metric-icon">⚡</div>
+                <div class="metric-info">
+                    <div class="metric-label">CPU Usage</div>
+                    <div class="metric-value" id="valueCpu">--</div>
+                    <div class="metric-unit">%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-section">
+            <h3>Biểu đồ thời gian thực</h3>
+            <div class="charts-container">
+                <div class="chart-wrapper" id="chartTemperature">
+                    <div class="chart-header">
+                        <span class="chart-title">🌡️ Temperature</span>
+                    </div>
+                    <canvas id="canvasTemperature" width="400" height="150"></canvas>
+                </div>
+                <div class="chart-wrapper" id="chartStock">
+                    <div class="chart-header">
+                        <span class="chart-title">📈 Stock Price</span>
+                    </div>
+                    <canvas id="canvasStock" width="400" height="150"></canvas>
+                </div>
+                <div class="chart-wrapper" id="chartCpu">
+                    <div class="chart-header">
+                        <span class="chart-title">⚡ CPU Usage</span>
+                    </div>
+                    <canvas id="canvasCpu" width="400" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Table -->
+        <div class="history-section">
+            <h3>Lịch sử dữ liệu (20 dòng gần nhất)</h3>
+            <div class="history-table-wrapper">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Thời gian</th>
+                            <th>Temperature</th>
+                            <th>Stock</th>
+                            <th>CPU</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <tr>
+                            <td colspan="4" class="no-data">Đang chờ dữ liệu...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/dashboard.js"></script>
+</body>
+</html>
